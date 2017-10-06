@@ -6,3 +6,7 @@ Currently two other programs, win_exp takes inputs of the strings of team names,
 
 FFB also now calcuates adjusted PW, calculates Lucky Wins and stores stores a dictionary of each team's record. Right now, the league_data file has to by manually updated with the "deviation per game," which is what the program uses to calcuate adjusted PW and Lucky Wins. I'm currently trying to figure out a way to loop through game results to calcuate this value.
 
+
+Update 10/6/17
+
+Updated FFB to take two files, league_data.csv and weeklyresults.csv, and calculates deviation from that - no need to manually enter it into the input file. It's not elegant, but it works. Program spits out the lucky wins for each team.
