@@ -11,8 +11,7 @@ import operator
 
 #Define variables
 exponent = 5.729 #pythagorean exponent
-total_games = 4.0 #total games (will need to figure out a better way for this
-tot_games = 4
+total_games = 5.0
 
 #import league data from league.data.csv
 with open('league_data.csv','rU') as csvfile:
@@ -44,6 +43,16 @@ with open('league_data.csv','rU') as csvfile:
         wins = map(int, wins)
         losses = map(int, losses)
         #deviation = map(float, deviation) not needed anymore
+
+#win percentage function
+def win_percentage(games_won):
+    percent = games_won/total_games
+    return percent
+
+win_per = [win_percentage(wins[i]) for i in range(0,12)]
+win_per_dictionary = dict(zip(teams,win_per))
+
+#print win_per_dictionary
 
 #Open the results file and gets the scores for each team
 with open('weekly_results.csv','rU') as csvfile:
@@ -115,6 +124,9 @@ menstrual_krampus_scores = map(float,menstrual_krampus_scores)
 stranger_in_the_alps_scores = map(float,stranger_in_the_alps_scores)
 mother_of_dragons_scores = map(float,mother_of_dragons_scores)
 wit_and_creativity_scores = map(float,wit_and_creativity_scores)
+
+#define number of games variables
+tot_games = len(righteous_in_wrath_scores)
 
 #make array of scores
 a = numpy.array(righteous_in_wrath_scores) #0
@@ -278,6 +290,7 @@ mean_SITA_dev = sum(SITA_dev)/len(SITA_dev)
 mean_MOD_dev = sum(MOD_dev)/len(MOD_dev)
 mean_WAC_dev = sum(WAC_dev)/len(WAC_dev)
 
+#list with each team's opponent's deviation
 deviation = [mean_RIW_dev,mean_TSW_dev,mean_four_dev,mean_BOT_dev,mean_EM_dev,
 mean_FHQ_dev,mean_butts_dev,mean_LMQ_dev,mean_MK_dev,mean_SITA_dev,mean_MOD_dev,
 mean_WAC_dev]
@@ -296,5 +309,8 @@ adj_PW_dictionary = dict(zip(teams,adj_PW))
 lucky_wins = [difference(wins[i],adj_PW[i]) for i in range(0,12)]
 lucky_wins_dictionary = dict(zip(teams,lucky_wins))
 
-for teams,lucky_wins in lucky_wins_dictionary.items():
-    print ('{} {}'.format(teams,lucky_wins))
+#print "Lucky wins"
+#for teams,lucky_wins in lucky_wins_dictionary.items():
+#    print ('{} {}'.format(teams,lucky_wins))
+
+print "FFB done"
