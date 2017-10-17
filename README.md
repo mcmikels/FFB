@@ -17,3 +17,7 @@ Update 10/13/17
 Updated FFB to find total games automatically for PPG calculations, having issues with the int, so that still has to be entered manually. Updated win_exp to do a Monte Carlo sim as well (10,000 games). The code stats_FFB calculates various stats needed in other programs. The program plots does linear fits for various variables and win percentage, then spits out a plot of the fits with R^2. It also outputs the equations in the terminal.
 
 Also working on more advanced regressions using pandas, but they need more work. They're forthcoming.
+
+Update 10/17/17
+
+Most recent updates to FFB and stats (now called stats_FFB) are up. Added plots.py, which does a linear fit of win% vs various values. The pandas_FFB does a multiple linear regression of positional scores vs win%. Not sure if it means anything, but it works. That takes the input positional_data.csv.
