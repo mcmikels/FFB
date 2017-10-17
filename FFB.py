@@ -11,7 +11,7 @@ import operator
 
 #Define variables
 exponent = 5.729 #pythagorean exponent
-total_games = 5.0
+total_games = 6.0
 
 #import league data from league.data.csv
 with open('league_data.csv','rU') as csvfile:
@@ -43,6 +43,42 @@ with open('league_data.csv','rU') as csvfile:
         wins = map(int, wins)
         losses = map(int, losses)
         #deviation = map(float, deviation) not needed anymore
+
+#get position scores
+with open('position_data.csv','rU') as csvfile:
+    reader = csv.reader(csvfile, delimiter= ",")
+    QB_scores = []
+    RB_scores = []
+    WR_scores = []
+    TE_scores = []
+    FLEX_scores = []
+    DEF_scores = []
+    K_scores = []
+    #don't need team strings extracted
+    for row in reader:
+        QB = row[1]
+        RB = row[2]
+        WR = row[3]
+        TE = row[4]
+        FLEX = row[5]
+        DEF = row[6]
+        KR = row[7]
+
+        QB_scores.append(QB)
+        RB_scores.append(RB)
+        WR_scores.append(WR)
+        TE_scores.append(TE)
+        FLEX_scores.append(FLEX)
+        DEF_scores.append(DEF)
+        K_scores.append(KR)
+
+        QB_scores = map(float, QB_scores)
+        RB_scores = map(float, RB_scores)
+        WR_scores = map(float, WR_scores)
+        TE_scores = map(float, TE_scores)
+        FLEX_scores = map(float, FLEX_scores)
+        DEF_scores = map(float, DEF_scores)
+        K_scores = map(float, K_scores)
 
 #win percentage function
 def win_percentage(games_won):

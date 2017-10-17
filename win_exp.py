@@ -10,8 +10,8 @@ team2 = input("Who are you playing?")
 
 win_prob = (FFB.pythagorean_wins(FFB.PPG_dictionary[team1],FFB.PPG_dictionary[team2],FFB.total_games))/FFB.total_games
 
-team1_trials = numpy.random.normal(stats.mean_dictionary[team1],stats.sigma_dictionary[team1],10000)
-team2_trials = numpy.random.normal(stats.mean_dictionary[team2],stats.sigma_dictionary[team2],10000)
+team1_trials = numpy.random.normal(stats_FFB.mean_dictionary[team1],stats_FFB.sigma_dictionary[team1],10000)
+team2_trials = numpy.random.normal(stats_FFB.mean_dictionary[team2],stats_FFB.sigma_dictionary[team2],10000)
 
 MC_wins = []
 for score1,score2 in zip(team1_trials,team2_trials):
