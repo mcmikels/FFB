@@ -11,7 +11,7 @@ import operator
 
 #Define variables
 exponent = 5.729 #pythagorean exponent
-total_games = 6.0
+#total_games = 7.0
 
 #import league data from league.data.csv
 with open('league_data.csv','rU') as csvfile:
@@ -79,16 +79,6 @@ with open('position_data.csv','rU') as csvfile:
         FLEX_scores = map(float, FLEX_scores)
         DEF_scores = map(float, DEF_scores)
         K_scores = map(float, K_scores)
-
-#win percentage function
-def win_percentage(games_won):
-    percent = games_won/total_games
-    return percent
-
-win_per = [win_percentage(wins[i]) for i in range(0,12)]
-win_per_dictionary = dict(zip(teams,win_per))
-
-#print win_per_dictionary
 
 #Open the results file and gets the scores for each team
 with open('weekly_results.csv','rU') as csvfile:
@@ -163,6 +153,18 @@ wit_and_creativity_scores = map(float,wit_and_creativity_scores)
 
 #define number of games variables
 tot_games = len(righteous_in_wrath_scores)
+total_games = float(tot_games)
+#print tot_games
+#print total_games
+
+#win percentage function
+def win_percentage(games_won):
+    percent = games_won/total_games
+    return percent
+
+win_per = [win_percentage(wins[i]) for i in range(0,12)]
+win_per_dictionary = dict(zip(teams,win_per))
+
 
 #make array of scores
 a = numpy.array(righteous_in_wrath_scores) #0

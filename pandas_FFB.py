@@ -10,7 +10,7 @@ import statsmodels.formula.api as sm
 #print result.params
 #print result.summary()
 
-df = pd.DataFrame({"A":FFB.adj_PW, "B":FFB.QB_scores, "C":FFB.RB_scores, "D":FFB.WR_scores,
+df = pd.DataFrame({"A":FFB.PPG, "B":FFB.QB_scores, "C":FFB.RB_scores, "D":FFB.WR_scores,
     "E":FFB.TE_scores, "F":FFB.FLEX_scores, "G":FFB.DEF_scores, "H":FFB.K_scores})
 result = sm.ols(formula="A ~ B + C + D + E + F + G + H", data=df).fit()
 print result.params
