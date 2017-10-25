@@ -21,3 +21,7 @@ Also working on more advanced regressions using pandas, but they need more work.
 Update 10/17/17
 
 Most recent updates to FFB and stats (now called stats_FFB) are up. Added plots.py, which does a linear fit of win% vs various values. The pandas_FFB does a multiple linear regression of positional scores vs win%. Not sure if it means anything, but it works. That takes the input positional_data.csv.
+
+Update 10/25/17
+
+FFB.py now no longer needs to have the number of games manually changed each week. win_exp.py now spits out a histogram of the scores for the two teams being simulated.
