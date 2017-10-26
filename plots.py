@@ -67,7 +67,7 @@ ax2.plot(x2,slope_dev * x2 + intercept_dev,"-")
 ax2.set_title('Win% vs. Dev')
 at = AnchoredText("R^2 = %s" % r_value_dev ** 2,
                   prop=dict(size=5), frameon=True,
-                  loc=3,
+                  loc=4,
                   )
 at.patch.set_boxstyle("round,pad=0.,rounding_size=0.2")
 ax2.add_artist(at)
@@ -78,7 +78,7 @@ ax3.plot(x3,slope_PPG * x3 + intercept_PPG,"-")
 ax3.set_title('Win% vs. PPG')
 at = AnchoredText("R^2 = %s" % r_value_PPG ** 2,
                   prop=dict(size=5), frameon=True,
-                  loc=5,
+                  loc=4,
                   )
 at.patch.set_boxstyle("round,pad=0.,rounding_size=0.2")
 ax3.add_artist(at)

@@ -29,9 +29,11 @@ winning_score2 = []
 losing_score2 = []
 team1_scores = []
 team2_scores = []
+margin = []
 for score1,score2 in zip(team1_trials,team2_trials):
     team1_scores.append(score1)
     team2_scores.append(score2)
+    margin.append(score1-score2)
     if score1 > score2:
         MC_wins.append(score1)
         winning_score1.append(score1)
@@ -46,16 +48,41 @@ average_loss1 = sum(losing_score1)/len(losing_score1)
 average_win2 = sum(winning_score2)/len(winning_score2)
 average_loss2 = sum(losing_score2)/len(losing_score2)
 
-sim_dev = stats_FFB.mean_dictionary[team1] - average_win1
-
 print "You won %s games in a 100,000 game Monte Carlo simulation." % number_of_wins
 print "In the Monte Carlo, your average win was %s to %s" % (average_win1, average_loss1)
 print "In the Monte Carlo, your average loss was %s to %s" % (average_win2, average_loss2)
 print "You have a %s percent chance of winning, according to the Pythagorean expectation." % (win_prob * 100)
 
+#Make figure with subplots
+fig1 = plt.figure()
+
 #Make histograms for each team's scores
-bins = numpy.linspace(0, 200, 200)
-plt.hist(team1_scores, bins, alpha = 0.5, label = team1)
-plt.hist(team2_scores, bins, alpha = 0.5, label = team2)
-plt.legend(loc = 'upper right')
+ax1 = fig1.add_subplot(221)
+bins1 = numpy.linspace(0, 200, 200)
+ax1.hist(team1_scores, bins1, alpha = 0.5, label = team1)
+ax1.hist(team2_scores, bins1, alpha = 0.5, label = team2)
+ax1.legend(loc = 0, prop = {'size' : 4})
+ax1.set_xlabel('Scores')
+ax1.set_ylabel('N')
+ax1.set_title('%s vs %s' %(team1,team2))
+#plt.show()
+
+#Margin histogram
+ax2 = fig1.add_subplot(222)
+bins2 = numpy.linspace(-150,150,300)
+ax2.hist(margin, bins2, alpha = 0.5, label = 'Score margin')
+ax2.legend(loc = 0, prop = {'size' : 4})
+ax2.set_xlabel('Score margin')
+ax2.set_title('Histogram of each game margin')
+ax2.set_ylabel('N')
+#plt.show()
+
+#2D Histrogram
+ax3 = fig1.add_subplot(223)
+ax3.hexbin(team1_scores,team2_scores)
+ax3.set_xlabel(team1)
+ax3.set_ylabel(team2)
+ax3.set_title('2D Histogram of team scores')
+
+plt.tight_layout()
 plt.show()
