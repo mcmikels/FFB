@@ -25,3 +25,7 @@ Most recent updates to FFB and stats (now called stats_FFB) are up. Added plots.
 Update 10/25/17
 
 FFB.py now no longer needs to have the number of games manually changed each week. win_exp.py now spits out a histogram of the scores for the two teams being simulated.
+
+Update 10/26/17
+
+Updated win_exp to spit out multiple histrograms of the simulation: each teams' score, the average margin for the first team entered, and a 2D histogram of the scores (this was mostly for fun).
