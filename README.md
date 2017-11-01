@@ -29,3 +29,7 @@ FFB.py now no longer needs to have the number of games manually changed each wee
 Update 10/26/17
 
 Updated win_exp to spit out multiple histrograms of the simulation: each teams' score, the average margin for the first team entered, and a 2D histogram of the scores (this was mostly for fun).
+
+Update 11/1/17
+
+Added historical.py, which attempts to fit for the pythagorean exponent. It gives a different number than my inelegant method did. It also spits out a plot of the different fits. The program takes the csv file historical.csv.
