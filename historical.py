@@ -1,4 +1,7 @@
 #Historical Analysis
+# The pythagorean function is win percent = PF^n/(PF^n + PA^n), this can be
+# rewritten as win perecent = 1/(1+(PA/PF)^n)
+#to get this in a form to fit, rewrite as (1/win percent) - 1 = (PA/PF)^n
 import csv
 import numpy as np
 from scipy.optimize import curve_fit
@@ -39,21 +42,23 @@ for win,loss in zip(wins,losses):
 x_data = []
 for pf,pa in zip(points_for,points_against):
     x_point = pa/pf
+    if x_point > 1.8:
+        x_point = 1
     x_data.append(x_point)
 
 y_data = []
 for game in win_per:
     if game > 0:
-        y_point = (game ** -1) - 1
+        y_point = (1/game) - 1
     if game == 0:
-        y_point = 0.5
+        y_point = 0
     y_data.append(y_point)
 
 #fit function
 def fit(x,exp):
     return x ** exp
 
-popt, pcov = curve_fit(fit, x_data, y_data, p0=3)
+popt, pcov = curve_fit(fit, x_data, y_data, p0=5)
 
 print popt, pcov
 

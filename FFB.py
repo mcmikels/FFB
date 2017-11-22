@@ -1,16 +1,13 @@
 # Fantasy Football Analysis
 #I'm a n00b at this, so feel free to change and/or tell me I'm a n00b
-#This just goes PPG and unadjusted PW for now, trying to figure out the best way
-# to get the luck information in
-#Now I have each teams weekly points in, now need to figure out how to
-# cycle through the matchups
+#Should calculate everything from the spreadsheet correctly now
 
 import csv
 import numpy
 import operator
 
 #Define variables
-exponent = 5.729 #pythagorean exponent
+exponent = 5.87 #pythagorean exponent
 #total_games = 7.0
 
 #import league data from league.data.csv
@@ -156,6 +153,13 @@ tot_games = len(righteous_in_wrath_scores)
 total_games = float(tot_games)
 #print tot_games
 #print total_games
+
+#all scores list
+all_scores = righteous_in_wrath_scores + toms_shady_weinerz_scores +\
+fournettecate_scores + big_ol_TDs_scores + equipmunk_managers_scores +\
+fhqwhgads_scores + butts_scores + lick_my_quintorris_scores +\
+menstrual_krampus_scores + stranger_in_the_alps_scores +\
+mother_of_dragons_scores + wit_and_creativity_scores
 
 #win percentage function
 def win_percentage(games_won):

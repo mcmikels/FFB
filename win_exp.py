@@ -1,5 +1,5 @@
 #Calcuates win expectancy based on pythagorean expectation
-#Takes team name strings, prints % chance of winning
+#Takes team name strings, prints % chance of winning as well as some plots
 
 import FFB
 import stats_FFB
@@ -75,6 +75,7 @@ ax2.legend(loc = 0, prop = {'size' : 4})
 ax2.set_xlabel('Score margin')
 ax2.set_title('Histogram of each game margin')
 ax2.set_ylabel('N')
+ax2.axvline(0, color='b', linestyle='dashed', linewidth=2)
 #plt.show()
 
 #2D Histrogram
@@ -83,6 +84,14 @@ ax3.hexbin(team1_scores,team2_scores)
 ax3.set_xlabel(team1)
 ax3.set_ylabel(team2)
 ax3.set_title('2D Histogram of team scores')
+
+ax4 = fig1.add_subplot(224)
+ax4.hist(winning_score1, bins1, alpha = 0.5, label = 'Winning Score')
+ax4.hist(losing_score2, bins1, alpha = 0.5, label = 'Losing Score')
+ax4.legend(loc = 0, prop = {'size' : 4})
+ax4.set_xlabel('Scores')
+ax4.set_ylabel('N')
+ax4.set_title('Winning and Losing Scores')
 
 plt.tight_layout()
 plt.show()
