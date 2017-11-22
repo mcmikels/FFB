@@ -33,3 +33,7 @@ Updated win_exp to spit out multiple histrograms of the simulation: each teams' 
 Update 11/1/17
 
 Added historical.py, which attempts to fit for the pythagorean exponent. It gives a different number than my inelegant method did. It also spits out a plot of the different fits. The program takes the csv file historical.csv.
+
+Update 11/22/17
+
+Updated the input files and did some housecleaning on the various programs. Added a couple new plots to the win_exp program.
